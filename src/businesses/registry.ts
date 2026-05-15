@@ -7,9 +7,11 @@
 
 import type { Business } from "./types";
 import { cafeAurora } from "./cafe-aurora";
+import { ocicat } from "./ocicat";
 
 export const businesses: Business[] = [
   cafeAurora,
+  ocicat,
   // <-- agrega aquí los negocios nuevos
 ];
 
