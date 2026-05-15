@@ -1,19 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta editorial. --brand y --ink los inyecta cada negocio;
+     aquí van los valores de respaldo + el papel crema fijo. */
+  --paper: #f3ede1;
+  --paper-deep: #e9e0cd;
+  --brand: #5b2c63;
+  --ink: #241226;
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01";
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--paper);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Grano sutil para dar textura de papel impreso (atmósfera, no ruido). */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+}
+
+/* Marco arqueado — remate suave, felino, de boutique. */
+.arch {
+  border-radius: 50% 50% 12px 12px / 28% 28% 12px 12px;
+}
+.arch-sm {
+  border-radius: 44% 44% 10px 10px / 22% 22% 10px 10px;
+}
+
+/* Capitular editorial. */
+.dropcap::first-letter {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: 4.6rem;
+  line-height: 0.78;
+  float: left;
+  margin: 0.42rem 0.7rem 0 0;
+  color: var(--brand);
+}
+
+/* Marquee infinito. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+/* Sello giratorio (firma visual). */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.seal-rotate {
+  animation: spin-slow 22s linear infinite;
+}
+
+/* Revelado escalonado al cargar. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .seal-rotate,
+  .rise {
+    animation: none;
+  }
+  .rise {
+    opacity: 1;
+  }
 }
