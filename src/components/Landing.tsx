@@ -24,7 +24,12 @@ export default function Landing({ b }: { b: Business }) {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-neutral-200">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <span className="text-lg font-bold tracking-tight">{b.name}</span>
+          {b.logo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={b.logo} alt={b.name} className="h-10 w-auto" />
+          ) : (
+            <span className="text-lg font-bold tracking-tight">{b.name}</span>
+          )}
           <nav className="hidden sm:flex items-center gap-8 text-sm text-neutral-600">
             <a href="#servicios" className="hover:text-neutral-900">Servicios</a>
             <a href="#nosotros" className="hover:text-neutral-900">Nosotros</a>

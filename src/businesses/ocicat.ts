@@ -14,11 +14,11 @@ export const ocicat: Business = {
   about:
     "En Ocicat solo atendemos gatos. Eso lo cambia todo: instalaciones diseñadas para reducir su estrés, personal con enfoque Cat Friendly y medicina felina actualizada. Tu gato es cuidado las 24 horas del día, los 7 días de la semana por personal médico. Aquí estarán en buenas manos.",
   theme: {
-    primary: "#0f9b8e",
-    dark: "#10242a",
+    primary: "#5b2c63",
+    dark: "#2a1430",
   },
-  heroImage:
-    "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=1600&q=80",
+  logo: "https://ocicatclinicafelina.com/img/logo-ocicat-original.png",
+  heroImage: "https://ocicatclinicafelina.com/img/clinica-felina-1.png",
   services: [
     {
       title: "Consulta Cat Friendly",
@@ -49,9 +49,9 @@ export const ocicat: Business = {
     },
   ],
   gallery: [
-    "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=800&q=80",
-    "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&q=80",
-    "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=800&q=80",
+    "https://ocicatclinicafelina.com/img/banner-4.png",
+    "https://ocicatclinicafelina.com/img/banner-3.png",
+    "https://ocicatclinicafelina.com/img/banner-2.png",
   ],
   testimonials: [
     {
