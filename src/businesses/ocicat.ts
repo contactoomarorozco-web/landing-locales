@@ -1,6 +1,5 @@
 // Demo real — Ocicat Clínica Felina (Guadalajara).
-// Datos reales tomados de su sitio y su ficha de Google Maps.
-// NOTA: las fotos son temporales (stock). Reemplazar por fotos reales de la clínica.
+// Datos, copy y fotos reales tomados de su sitio y su ficha de Google Maps.
 
 import type { Business } from "./types";
 
@@ -12,13 +11,37 @@ export const ocicat: Business = {
   category: "Clínica veterinaria felina",
   location: "Guadalajara, Jal.",
   about:
-    "En Ocicat solo atendemos gatos. Eso lo cambia todo: instalaciones diseñadas para reducir su estrés, personal con enfoque Cat Friendly y medicina felina actualizada. Tu gato es cuidado las 24 horas del día, los 7 días de la semana por personal médico. Aquí estarán en buenas manos.",
+    "En Ocicat solo atendemos gatos, y eso lo cambia todo. Nuestras instalaciones están diseñadas para reducir su estrés: sin perros, sin ruido, sin esperas que los alteren. Sumamos medicina felina actualizada, un equipo con certificación Cat Friendly y atención médica las 24 horas, los 7 días de la semana. Aquí tu gato no es un paciente más: está en buenas manos.",
+  story:
+    "El amor incondicional y el profundo agradecimiento de nuestra fundadora, Sonia Lomelín, hacia los gatos dio origen a la primera clínica veterinaria exclusiva para felinos del estado de Jalisco.",
   theme: {
     primary: "#5b2c63",
     dark: "#2a1430",
   },
   logo: "https://ocicatclinicafelina.com/img/logo-ocicat-original.png",
   heroImage: "https://ocicatclinicafelina.com/img/clinica-felina-1.png",
+  spotlight: {
+    kicker: "Hotel felino",
+    title: "Ellos estarán en buenas manos",
+    description:
+      "Mientras viajas, tu gato es cuidado y acompañado las 24 horas por personal médico, en un espacio pensado a su medida.",
+    bullets: [
+      "Módulos con agua y comida separadas del arenero",
+      "Material que reduce el frío, el ruido y los reflejos",
+      "Aromaterapia, feromonas faciales felinas y música",
+      "Control diario de ingesta de agua y alimento",
+      "Módulos dobles para su mayor comodidad",
+    ],
+    image: "https://ocicatclinicafelina.com/img/banner-4.png",
+  },
+  credentials: [
+    "Cat Friendly Practice",
+    "AMMVEPE",
+    "ISVPS",
+    "UANL",
+    "Pet Friendly",
+  ],
+  notes: ["English spoken", "Servicios con previa cita", "Atención 24/7"],
   services: [
     {
       title: "Consulta Cat Friendly",
@@ -26,26 +49,29 @@ export const ocicat: Business = {
         "Atención certificada con enfoque en el bienestar del gato y medicina felina actualizada.",
     },
     {
-      title: "Laboratorio y rayos X digitales",
-      description: "Diagnóstico preciso con análisis y radiografía digital en sitio.",
+      title: "Laboratorio clínico",
+      description:
+        "Análisis clínicos para un diagnóstico preciso, interpretados con criterio felino.",
+    },
+    {
+      title: "Rayos X digitales",
+      description:
+        "Imagen digital de alta definición, sin esperas y con menor manipulación del gato.",
     },
     {
       title: "Cirugía",
-      description: "Procedimientos quirúrgicos con equipo y personal especializado.",
+      description:
+        "Procedimientos quirúrgicos con equipo y personal especializado en felinos.",
     },
     {
       title: "Hospitalización",
       description:
-        "Monitoreo médico 24/7 en un espacio tranquilo, sin perros que estresen a tu gato.",
+        "Monitoreo médico las 24 horas en un espacio tranquilo, sin perros que estresen a tu gato.",
     },
     {
-      title: "Hotel felino 24/7",
+      title: "Venta de alimento",
       description:
-        "Hospedaje seguro y supervisado por personal médico mientras viajas.",
-    },
-    {
-      title: "Alimento especializado",
-      description: "Venta de alimento recomendado para cada etapa y necesidad.",
+        "Alimento recomendado para cada etapa, condición y necesidad de tu gato.",
     },
   ],
   gallery: [

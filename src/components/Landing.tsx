@@ -102,6 +102,20 @@ export default function Landing({ b }: { b: Business }) {
                 Cómo llegar
               </a>
             </div>
+
+            {b.notes && b.notes.length > 0 && (
+              <div
+                className="rise mt-12 flex flex-wrap items-center gap-x-7 gap-y-3 text-[0.7rem] font-semibold uppercase tracking-[0.22em] opacity-60"
+                style={{ animationDelay: "0.42s" }}
+              >
+                {b.notes.map((n, i) => (
+                  <span key={n} className="flex items-center gap-7">
+                    {i > 0 && <span style={{ color: "var(--brand)" }}>✦</span>}
+                    {n}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="lg:col-span-5 relative">
@@ -170,6 +184,21 @@ export default function Landing({ b }: { b: Business }) {
           ))}
         </div>
       </div>
+
+      {/* ---------- ORIGEN (historia) ---------- */}
+      {b.story && (
+        <section className="grain relative mx-auto max-w-5xl px-6 lg:px-10 py-24 lg:py-36 text-center">
+          <p
+            className="text-[0.7rem] font-semibold uppercase tracking-[0.32em]"
+            style={{ color: "var(--brand)" }}
+          >
+            Nuestro origen
+          </p>
+          <p className="font-display mt-9 text-[clamp(1.7rem,4vw,3.1rem)] italic leading-[1.32]">
+            {b.story}
+          </p>
+        </section>
+      )}
 
       {/* ---------- NOSOTROS ---------- */}
       <section
@@ -246,6 +275,52 @@ export default function Landing({ b }: { b: Business }) {
           </ul>
         </div>
       </section>
+
+      {/* ---------- SPOTLIGHT (servicio estrella) ---------- */}
+      {b.spotlight && (
+        <section style={{ background: "var(--ink)", color: "var(--paper)" }}>
+          <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-12 gap-14 items-center">
+            <div className="lg:col-span-5">
+              <div
+                className="arch relative aspect-[4/5] overflow-hidden"
+                style={{ boxShadow: "0 30px 70px -30px rgba(0,0,0,.7)" }}
+              >
+                <Image
+                  src={b.spotlight.image}
+                  alt={b.spotlight.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:1024px) 100vw, 40vw"
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <p
+                className="text-[0.72rem] font-semibold uppercase tracking-[0.32em]"
+                style={{ color: "var(--brand)" }}
+              >
+                {b.spotlight.kicker}
+              </p>
+              <h2 className="font-display mt-6 text-4xl lg:text-6xl font-semibold tracking-tight leading-[1.02]">
+                {b.spotlight.title}
+              </h2>
+              <p className="mt-7 max-w-xl text-lg leading-relaxed opacity-75">
+                {b.spotlight.description}
+              </p>
+              <ul className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-5">
+                {b.spotlight.bullets.map((bl) => (
+                  <li key={bl} className="flex gap-4 text-base leading-snug">
+                    <span style={{ color: "var(--brand)" }} aria-hidden>
+                      ✦
+                    </span>
+                    <span className="opacity-85">{bl}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ---------- GALERÍA ---------- */}
       {b.gallery.length > 0 && (
@@ -401,6 +476,34 @@ export default function Landing({ b }: { b: Business }) {
           </div>
         </div>
       </section>
+
+      {/* ---------- CREDENCIALES ---------- */}
+      {b.credentials && b.credentials.length > 0 && (
+        <section
+          className="border-t"
+          style={{
+            borderColor: "color-mix(in srgb, var(--ink) 18%, transparent)",
+            background: "var(--paper-deep, #e9e0cd)",
+          }}
+        >
+          <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] opacity-50 shrink-0">
+              Avales y<br className="hidden lg:block" /> certificaciones
+            </p>
+            <div className="flex flex-wrap items-center gap-x-10 gap-y-5">
+              {b.credentials.map((c) => (
+                <span
+                  key={c}
+                  className="font-display text-xl lg:text-2xl"
+                  style={{ color: "var(--ink)" }}
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ---------- FOOTER ---------- */}
       <footer

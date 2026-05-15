@@ -32,6 +32,26 @@ export type Business = {
   /** Imagen grande del hero: ruta dentro de /public, o una URL */
   heroImage: string;
 
+  /** (Opcional) Frase corta de origen / historia emocional del negocio.
+   *  Se muestra en grande como cita editorial. Ej: por qué nació. */
+  story?: string;
+
+  /** (Opcional) Bloque destacado: un servicio estrella con su detalle.
+   *  Ej: el hotel felino, con sus puntos diferenciadores. */
+  spotlight?: {
+    kicker: string; // etiqueta corta, ej: "Hotel felino"
+    title: string;
+    description: string;
+    bullets: string[]; // detalles que lo hacen premium
+    image: string;
+  };
+
+  /** (Opcional) Avales / certificaciones (texto). Ej: "Cat Friendly Practice" */
+  credentials?: string[];
+
+  /** (Opcional) Notas operativas cortas. Ej: "English spoken", "Con previa cita" */
+  notes?: string[];
+
   /** Servicios o productos destacados */
   services: { title: string; description: string }[];
 
