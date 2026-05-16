@@ -17,9 +17,21 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+  : new URL("http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: baseUrl,
   title: "Landings de negocios locales",
   description: "Páginas web para negocios locales",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/faviconV2.png", type: "image/png" },
+    ],
+    apple: "/faviconV2.png",
+  },
 };
 
 export default function RootLayout({
